@@ -26,16 +26,40 @@ class Program
         while (balance > 0)
         {
             //Let user choose mode
-            Console.WriteLine(
-                "Please choose a mode (enter number of the mode and press enter):\n1 Middle Line\n2 All Horizontal " +
-                "\n3 All Vertical \n4 Both Diagonals");
-            int mode = Convert.ToInt32(Console.ReadLine());
+            int mode;
+            while (true)
+            {
+                Console.WriteLine(
+                    "Please choose a mode (enter number of the mode and press enter):\n1 Middle Line\n2 All Horizontal " +
+                    "\n3 All Vertical \n4 Both Diagonals");
+                bool success = int.TryParse(Console.ReadLine(), out mode);
+                if (success)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("This is not a number...");
+                }
+            }
 
             //Let user choose machine size
-            Console.WriteLine(
-                "Please choose the size of the slot machine (enter number of the size and press enter):\n1 3X3\n2 5X5" +
-                "\n3 7X7");
-            int dim = Convert.ToInt32(Console.ReadLine());
+            int dim;
+            while (true)
+            {
+                Console.WriteLine(
+                    "Please choose the size of the slot machine (enter number of the size and press enter):\n1 3X3\n2 5X5" +
+                    "\n3 7X7");
+                bool success = int.TryParse(Console.ReadLine(), out dim);
+                if (success)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("This is not a number...");
+                }
+            }
 
             int size = 0;
 
@@ -162,8 +186,6 @@ class Program
                     }
 
                     row++;
-
-
                 }
 
                 if (boolWinDiag)
@@ -182,7 +204,6 @@ class Program
                     }
 
                     row++;
-
                 }
 
                 if (boolWinDiag)
